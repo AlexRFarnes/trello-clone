@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Trello Clone</title>
+  <script src="https://kit.fontawesome.com/4a3b7c08aa.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="btn-group">
+      <button type="button" class="btn btn-file-manage" data-download-file>
+        <span>Download <i class="fas fa-file-download icon"></i></span>
+      </button>
+      <label for="upload-file" class="btn btn-file-manage">
+        <span>Upload <i class="fas fa-file-upload icon"></i></span>
+        <input type="file" id="upload-file" accept="application/json" data-upload-file>
+      </label>
+    </div>
+    <div class="trash-wrapper" data-drop-zone data-trash><i class="fas fa-trash icon-trash"></i></div>
+  </header>
+  <div class="lanes" data-lanes>
+    <!-- <div class="lane">
+      <div class="header">
+        Backlog
+      </div>
+      <div class="tasks" data-drop-zone data-zone-id="backlog">
+      </div>
+      <form data-task-form>
+        <input data-task-input class="task-input" type="text" placeholder="Task Name" />
+      </form>
+    </div> -->
+  </div>
+  <form data-lane-form class="lane-form">
+    <input class="lane-input" data-lane-input type="text" placeholder="Lane Name">
+  </form>
+  <template id="lane-template">
+    <div class="lane">
+      <div data-header class="header">
+      </div>
+      <div class="tasks" data-drop-zone data-zone-id="placeholder">
+      </div>
+      <form data-task-form>
+        <input data-task-input class="task-input" type="text" placeholder="Task Name" />
+      </form>
+    </div>
+  </template>
+</body>
+</html>

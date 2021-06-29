@@ -1,0 +1,261 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  background-color: #ccc;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.lanes {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  height: 100%;
+  flex-wrap: wrap;
+}
+
+.lane {
+  display: flex;
+  flex-direction: column;
+  background-color: #aaa;
+  flex-basis: 0;
+  flex-grow: 1;
+  margin: 0.25rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  max-width: 16rem;
+}
+
+.header {
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+
+.fa-times {
+  position: absolute;
+  top: 0.25em;
+  right: 0.5em;
+  color: #aaa;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s linear;
+}
+
+.fa-times:hover {
+  color: #ff5252;
+}
+
+.tasks {
+  padding: 0 0.25rem;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.task {
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  background-color: white;
+  cursor: grab;
+  margin: 0.25rem 0;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.lane-input,
+.task-input {
+  padding: 0.3rem 0.5rem;
+  border: none;
+  background-color: #333;
+  color: white;
+  outline: none;
+}
+
+.lane-form {
+  position: absolute;
+  bottom: 5rem;
+  width: max-content;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.lane-input {
+  font-size: 1.1rem;
+  border-radius: 0.25rem;
+}
+
+.task-input {
+  width: 100%;
+}
+
+.task-input::placeholder {
+  color: #aaa;
+}
+
+[data-draggable] {
+  user-select: none;
+}
+
+[data-draggable].hide {
+  display: none !important;
+  visibility: hidden;
+}
+
+[data-draggable].dragging {
+  position: absolute;
+  opacity: 0.5;
+  transform: rotate(5deg);
+  pointer-events: none;
+}
+
+[data-draggable].ghost {
+  background-color: black;
+  opacity: 0.25;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em;
+}
+
+.btn-group {
+  display: flex;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  /* background: #777; */
+  background: #33d9b2;
+  padding: 0.25rem 0.5rem;
+  position: relative;
+  display: inline-block;
+  font-family: inherit;
+  overflow: hidden;
+  font-size: 1.15rem;
+  border-radius: 0.25em;
+  color: rgb(2, 0, 22);
+  margin-right: 1em;
+}
+
+.trash-wrapper {
+  padding: 0.75rem 1rem;
+}
+
+.icon-trash {
+  cursor: pointer;
+  font-size: 2rem;
+  color: rgba(255, 82, 82, 1);
+  box-shadow: 0 0 0 0 rgba(255, 82, 82, 1);
+  line-height: 2rem;
+  border-radius: 50%;
+}
+
+[data-trash].pulse .icon-trash {
+  -webkit-animation: pulse 1s infinite;
+  animation: pulse 1s infinte;
+}
+
+.btn-file-manage::before {
+  content: '';
+  position: absolute;
+  background: #000;
+  width: 120%;
+  height: 0;
+  padding-bottom: 120%;
+  top: -110%;
+  left: -10%;
+  border-radius: 50%;
+  transform: translate3d(0, 68%, 0) scale3d(0, 0, 0);
+}
+
+.btn-file-manage::after {
+  content: '';
+  background: #000;
+  transform: translate3d(0, -100%, 0);
+  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+}
+
+.btn-file-manage span {
+  display: block;
+  position: relative;
+  /* mix-blend-mode: difference; */
+  z-index: 10;
+  transition: color 0.5s;
+}
+
+.btn-file-manage:hover::before {
+  transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+}
+
+.btn-file-manage:hover::after {
+  transform: translate3d(0, 0, 0);
+  transition-duration: 0.05s;
+  transition-delay: 0.4s;
+  transition-timing-function: linear;
+}
+
+.btn-file-manage:hover span {
+  animation: MoveScaleUpInitial 0.3s forwards, MoveScaleUpEnd 0.3s forwards 0.3s;
+  color: #fff;
+}
+
+.icon {
+  width: 0.8rem;
+  height: 0.8rem;
+  color: currentColor;
+  margin-left: 1em;
+}
+
+@keyframes MoveScaleUpInitial {
+  to {
+    transform: translate3d(0, -105%, 0) scale3d(1, 2, 1);
+    opacity: 0;
+  }
+}
+
+@keyframes MoveScaleUpEnd {
+  from {
+    transform: translate3d(0, 100%, 0) scale3d(1, 2, 1);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.8);
+  }
+
+  70% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+  }
+}
