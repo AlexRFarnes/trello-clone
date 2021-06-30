@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel --no-minify build index.html"
+    "build": "parcel build --no-minify index.html"
   },
   "keywords": [],
   "author": "",
