@@ -23,19 +23,10 @@
     <div class="trash-wrapper" data-drop-zone data-trash><i class="fas fa-trash icon-trash"></i></div>
   </header>
   <div class="lanes" data-lanes>
-    <!-- <div class="lane">
-      <div class="header">
-        Backlog
-      </div>
-      <div class="tasks" data-drop-zone data-zone-id="backlog">
-      </div>
-      <form data-task-form>
-        <input data-task-input class="task-input" type="text" placeholder="Task Name" />
-      </form>
-    </div> -->
   </div>
   <form data-lane-form class="lane-form">
-    <input class="lane-input" data-lane-input type="text" placeholder="Lane Name">
+    <label for="lane-input" class="lane-label">Enter a new lane: </label>
+    <input id="lane-input" class="lane-input" data-lane-input type="text" placeholder="Lane Name">
   </form>
   <template id="lane-template">
     <div class="lane">
@@ -44,7 +35,7 @@
       <div class="tasks" data-drop-zone data-zone-id="placeholder">
       </div>
       <form data-task-form>
-        <input data-task-input class="task-input" type="text" placeholder="Task Name" />
+        <input  data-task-input class="task-input" type="text" placeholder="Task Name" />
       </form>
     </div>
   </template>

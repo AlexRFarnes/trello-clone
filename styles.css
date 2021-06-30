@@ -15,122 +15,14 @@ body {
   overflow: hidden;
 }
 
-.lanes {
-  display: flex;
-  justify-content: center;
-  padding: 0.5rem;
-  height: 100%;
-  flex-wrap: wrap;
-}
-
-.lane {
-  display: flex;
-  flex-direction: column;
-  background-color: #aaa;
-  flex-basis: 0;
-  flex-grow: 1;
-  margin: 0.25rem;
-  border-radius: 0.25rem;
-  overflow: hidden;
-  max-width: 16rem;
-}
-
-.header {
-  text-align: center;
-  background-color: #333;
-  color: white;
-  padding: 0.5rem 1rem;
-  position: relative;
-}
-
-.fa-times {
-  position: absolute;
-  top: 0.25em;
-  right: 0.5em;
-  color: #aaa;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: color 0.3s linear;
-}
-
-.fa-times:hover {
-  color: #ff5252;
-}
-
-.tasks {
-  padding: 0 0.25rem;
-  flex-grow: 1;
-  overflow-y: auto;
-}
-
-.task {
-  padding: 0.25rem;
-  border-radius: 0.25rem;
-  background-color: white;
-  cursor: grab;
-  margin: 0.25rem 0;
-  text-align: center;
-  word-wrap: break-word;
-}
-
-.lane-input,
-.task-input {
-  padding: 0.3rem 0.5rem;
-  border: none;
-  background-color: #333;
-  color: white;
-  outline: none;
-}
-
-.lane-form {
-  position: absolute;
-  bottom: 5rem;
-  width: max-content;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.lane-input {
-  font-size: 1.1rem;
-  border-radius: 0.25rem;
-}
-
-.task-input {
-  width: 100%;
-}
-
-.task-input::placeholder {
-  color: #aaa;
-}
-
-[data-draggable] {
-  user-select: none;
-}
-
-[data-draggable].hide {
-  display: none !important;
-  visibility: hidden;
-}
-
-[data-draggable].dragging {
-  position: absolute;
-  opacity: 0.5;
-  transform: rotate(5deg);
-  pointer-events: none;
-}
-
-[data-draggable].ghost {
-  background-color: black;
-  opacity: 0.25;
-}
-
+/* Main site header */
 .main-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1em;
 }
-
+/* Buttons */
 .btn-group {
   display: flex;
 }
@@ -224,6 +116,124 @@ input[type='file'] {
   color: currentColor;
   margin-left: 1em;
 }
+
+/* Lanes */
+.lanes {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  height: 100%;
+  flex-wrap: wrap;
+}
+
+.lane {
+  display: flex;
+  flex-direction: column;
+  background-color: #aaa;
+  flex-basis: 0;
+  flex-grow: 1;
+  margin: 0.25rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  max-width: 16rem;
+}
+
+.header {
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+
+.fa-times {
+  position: absolute;
+  top: 0.25em;
+  right: 0.5em;
+  color: #aaa;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s linear;
+}
+
+.fa-times:hover {
+  color: #ff5252;
+}
+
+.tasks {
+  padding: 0 0.25rem;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.task {
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  background-color: white;
+  cursor: grab;
+  margin: 0.25rem 0;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.lane-input,
+.task-input {
+  padding: 0.3rem 0.5rem;
+  border: none;
+  background-color: #333;
+  color: white;
+  outline: none;
+}
+
+.lane-form {
+  position: absolute;
+  bottom: 15%;
+  width: max-content;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.lane-label {
+  font-size: 1.8rem;
+}
+
+.lane-input {
+  font-size: 1.5rem;
+  border-radius: 0.25rem;
+}
+
+.task-input {
+  width: 100%;
+}
+
+.task-input::placeholder {
+  color: #aaa;
+}
+
+/* Drag and drop classes */
+
+[data-draggable] {
+  user-select: none;
+}
+
+[data-draggable].hide {
+  display: none !important;
+  visibility: hidden;
+}
+
+[data-draggable].dragging {
+  position: absolute;
+  opacity: 0.5;
+  transform: rotate(5deg);
+  pointer-events: none;
+}
+
+[data-draggable].ghost {
+  background-color: black;
+  opacity: 0.25;
+}
+
+/* Animations */
 
 @keyframes MoveScaleUpInitial {
   to {
