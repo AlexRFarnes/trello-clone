@@ -18,8 +18,8 @@
 
 ## Screenshots
 
-![Screenshot]()
-[Demo]()
+![trello-clone](https://user-images.githubusercontent.com/57517804/123953180-85272d80-d9d9-11eb-8d26-cacec4b7c4f7.jpg)
+[Demo](https://hardcore-agnesi-12e63d.netlify.app/)
 
 ## Technologies
 
