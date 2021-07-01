@@ -14,7 +14,7 @@
 
 ## General info
 
- 
+ A clone of the Trello app focused mainly on the drag and drop functionality. The goal of the project was to build a custom drag and drop systeme with JavaScript. In addition the drag and drop, I added the functionality to add and delete tasks and lanes, and the hability to download the lanes and tasks as json files, to carry files to different a computer and just upload the json file and it renders it. 
 
 ## Screenshots
 
